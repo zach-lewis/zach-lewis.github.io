@@ -43,7 +43,6 @@ ax = sns.boxplot(x='pitch_type', y='release_spin_rate', data=full, ax=ax, palett
 ax.set_title(f'Spin Rate Distrobutions by Pitch Type. Overall Mean: {full.release_spin_rate.mean():.0f}')
 ```
 
-IMAGE PENDING 
 <img src="images/pitch_spin_rates.png" alt=hi class=inline/>
 
 The pitches with the highest median spin rate are Curveballs (CU) and Knucklecurves (KC), while the lowest are Changups (CH),  Knuckleballs (KN), Forkballs (FO), and Splitters (FS). For this analysis, I focused only on fastballs excl. Splitters (Four-Seam, Two-Seam, Sinkers, and Cutters) to be sure and remove any noise from trends. In other words, I wanted to be sure that any decrease in spin rate signals an actual change in pitcher performance, and is not related to a decrease in the number of curveballs or sliders they're throwing. 
