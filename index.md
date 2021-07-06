@@ -1,5 +1,3 @@
-Here you can say lots of fun things about your site.
+This is mainly a place for me play around with ideas I have, and hopefully learn some fun new things in the process.
 
-Maybe say a some things about yourself.
-
-Or maybe what you plan to blog about.
+If you're reading this, I hope you enjoy and maybe learn something too.
