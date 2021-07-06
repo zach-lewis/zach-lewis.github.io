@@ -43,7 +43,7 @@ ax = sns.boxplot(x='pitch_type', y='release_spin_rate', data=full, ax=ax, palett
 ax.set_title(f'Spin Rate Distrobutions by Pitch Type. Overall Mean: {full.release_spin_rate.mean():.0f}')
 ```
 
-<img src="images/pitch_spin_rates.png" alt=hi class=inline/>
+![image](https://user-images.githubusercontent.com/85371843/124680325-c614bb80-de8b-11eb-98ce-73e1f992c542.png)
 
 The pitches with the highest median spin rate are Curveballs (CU) and Knucklecurves (KC), while the lowest are Changups (CH),  Knuckleballs (KN), Forkballs (FO), and Splitters (FS). For this analysis, I focused only on fastballs excl. Splitters (Four-Seam, Two-Seam, Sinkers, and Cutters) to be sure and remove any noise from trends. In other words, I wanted to be sure that any decrease in spin rate signals an actual change in pitcher performance, and is not related to a decrease in the number of curveballs or sliders they're throwing. 
 
@@ -242,4 +242,5 @@ An examination of the YoY trends for Kershaw, Scherzer, Darvish, and Hendricks r
 The league average spin rate reached an all time high in 2021 - something that seems to have been driven by an increased understanding of spin rate's impact on performance, and an uptick in the adoption of foreign substance use. An immediate decrease in average RPMs following the MLB's announcement they would be cracking down on substance use all but confirms the suspicion that adoption of foreign substance use was nearly ubiquitous. 
 
 We will see in the coming months the impact that decreased spin rates has on pitchers' stats, and the game as a whole. The MLB has <a href="https://www.espn.com/mlb/story/_/id/30863022/mlb-slightly-deadening-baseball-amid-years-long-home-run-surge">taken steps this year to stymie the recent surge in HR's ,</a> and it will be interesting to see how a potential decrease in pitcher dominance plays out. Someone with a love for small ball might hope that there's a chance for offensive performance to increase, while the prevalence of three true outcomes declines. 
+
 
