@@ -32,7 +32,7 @@ full = pybaseball.statcast(start_dt='2016-01-01', end_dt='2021-12-31')
 print(f'Total pitches in selected timeframe: {full.shape[0]}')
 ```
 
-### Spin Rate Distrobutions
+### Spin Rate Distributions
 Different pitches have a different average spin rate - a good knuckleball should have almost no spin, while a curveball requires a high number of revolutions to create significant movement. 
 
 ```python
@@ -40,7 +40,7 @@ order_=full.groupby('pitch_type').agg({'release_spin_rate' : 'mean'}).sort_value
 fig, ax = plt.subplots(figsize=(16,10))
 ax = sns.boxplot(x='pitch_type', y='release_spin_rate', data=full, ax=ax, palette='GnBu_r',
                 order=order_)
-ax.set_title(f'Spin Rate Distrobutions by Pitch Type. Overall Mean: {full.release_spin_rate.mean():.0f}')
+ax.set_title(f'Spin Rate Distributions by Pitch Type. Overall Mean: {full.release_spin_rate.mean():.0f}')
 ```
 
 ![image](https://user-images.githubusercontent.com/85371843/124680325-c614bb80-de8b-11eb-98ce-73e1f992c542.png)
