@@ -43,7 +43,9 @@ ax = sns.boxplot(x='pitch_type', y='release_spin_rate', data=full, ax=ax, palett
 ax.set_title(f'Spin Rate Distributions by Pitch Type. Overall Mean: {full.release_spin_rate.mean():.0f}')
 ```
 
-![image](https://user-images.githubusercontent.com/85371843/124680325-c614bb80-de8b-11eb-98ce-73e1f992c542.png)
+<!-- ![image](https://user-images.githubusercontent.com/85371843/124680325-c614bb80-de8b-11eb-98ce-73e1f992c542.png) -->
+
+<img src="/images/pitch_spin_rates.png" alt="hi" class="inline"/>
 
 The pitches with the highest median spin rate are Curveballs (CU) and Knucklecurves (KC), while the lowest are Changups (CH),  Knuckleballs (KN), Forkballs (FO), and Splitters (FS). For this analysis, I focused only on fastballs excl. Splitters (Four-Seam, Two-Seam, Sinkers, and Cutters) to be sure and remove any noise from trends. In other words, I wanted to be sure that any decrease in spin rate signals an actual change in pitcher performance, and is not related to a decrease in the number of curveballs or sliders they're throwing. 
 
@@ -81,7 +83,10 @@ for i, ax in enumerate(axes.flat):
     ax.set_title(f"Correlation = {corr_.iloc[0][stats_list[i]]:.2f}")
 ```
 
-![image](https://user-images.githubusercontent.com/85371843/124680528-37546e80-de8c-11eb-9637-971271d288e3.png)
+<!-- ![image](https://user-images.githubusercontent.com/85371843/124680528-37546e80-de8c-11eb-9637-971271d288e3.png) -->
+TEST
+<img src="/images/spin_rate_correlation.png" alt="hi" class="inline"/>
+
 
 Spin rate has a degree of correlation with all of the selected stats, however the most significant of the 6 are K/9 and SwStr% - in other words, the higher your spin rate, the better your chances are of striking out a batter. It follows that an increase in average spin rates across the board would contribute to the rise of the three true outcomes (HRs, BB, and K's), and that pitchers might turn to performance enhancing substances to drive up their spin rate. If the impacts of foreign substances are to be believed, a pitcher with an average spin rate of ~2100 could reasonably expect to increase their K/9 by 1-2 if they were able to increase spin rate by ~300 RPM. 
 
@@ -139,7 +144,9 @@ ax.vlines(x=[53], ymin=2200, ymax=2300, colors='red', linestyles='dashed', linew
 ax.text(55, 2290, 'MLB signals crackdown\non foreign substances', fontsize=12)
 ```
 
-![image](https://user-images.githubusercontent.com/85371843/124680561-4509f400-de8c-11eb-9e62-0eca542e8b13.png)
+<!-- ![image](https://user-images.githubusercontent.com/85371843/124680561-4509f400-de8c-11eb-9e62-0eca542e8b13.png) -->
+<img src="/images/spin_rate_yoy.png" alt="hi" class="inline"/>
+
 
 It's clear there was an immediate, and dramatic decrease in spin rates following the announcement umpires would be checking for foreign substances. It seemsthere might have been some behind the scenes action or discussions as well given the average starts to drop even before the public announcement.
 
@@ -173,7 +180,9 @@ rect = plt.Rectangle((1, 2308), 2, 15, color='r', alpha=1)
 ax.add_patch(rect)
 ```
 
-![image](https://user-images.githubusercontent.com/85371843/124680585-4dfac580-de8c-11eb-8a5a-bf0d2a8a4108.png)
+<!-- ![image](https://user-images.githubusercontent.com/85371843/124680585-4dfac580-de8c-11eb-8a5a-bf0d2a8a4108.png) -->
+<img src="/images/g_cole_yoy.png" alt="hi" class="inline"/>
+
 
 In the 2018 offseason, Gerrit Cole was traded from the Pittsburgh Pirates to the Houston Astros and subsequently saw an insrease in his spin rate from ~2150 in 2017 to ~2450 by the end of 2018. Given the Astros are a team <a href="https://en.wikipedia.org/wiki/Houston_Astros_sign_stealing_scandal">known for cheating</a>, it would be no surprise if Cole's increase in spin rate was in some way attributable to the use of foreign substances.
 
@@ -193,7 +202,9 @@ ax.add_patch(rect1)
 ax.add_patch(rect2)
 ```
 
-![image](https://user-images.githubusercontent.com/85371843/124680603-56530080-de8c-11eb-9cc7-27e88b4e3bb3.png)
+<!-- ![image](https://user-images.githubusercontent.com/85371843/124680603-56530080-de8c-11eb-9cc7-27e88b4e3bb3.png) -->
+<img src="/images/t_bauer_yoy.png" alt="hi" class="inline"/>
+
 
 Trevor Bauer has been outspoken about spin rates for a while, and at this point he's difficult to seperate from the topic. He has the current highest spin rate in the MLB, and has beleagured the topic for years - in his essay <a href="https://www.theplayerstribune.com/articles/trevor-bauer-cincinnati-reds-sign-stealing">"I wish I'd Been Wrong"</a> he mentions researching beginning in 2012, and stated "For eight years I’ve been trying to figure out how to increase the spin on my fastball because I’d identified it way back then as such a massive advantage. I knew that if I could learn to increase it through training and technique, it would be huge. But eight years later, I haven’t found any other way except using foreign substances."
 
@@ -215,7 +226,9 @@ ax.legend(['2016', '2017', '2018', '2019', '2020', '2021'],loc='lower left')
 ax.legend
 ```
 
-![image](https://user-images.githubusercontent.com/85371843/124680615-5d7a0e80-de8c-11eb-99cd-acb8936f445f.png)
+<!-- ![image](https://user-images.githubusercontent.com/85371843/124680615-5d7a0e80-de8c-11eb-99cd-acb8936f445f.png) -->
+<img src="/images/j_degrom_yoy.png" alt="hi" class="inline"/>
+
 
 Jacob deGrom is a 2 time Cy Young winner, who could reasonably be expected to win his third this year. As of writing this, his ERA is 0.95 and his WHIP is 0.54. He has accounted for 6 RBIs himself, while only allowing 9 ERs on the season. In short, <a href="https://www.pitcherlist.com/is-jacob-degrom-actually-good/">he's insanely talented.</a> One might expect a player that dominate to have seen a similar decrease in RPMs, yet his spin rate does not seem to have been as impacted by the rule enforcement - it actually went up at the same time that others declined. Additionally, his spin rate for the past 5 years has been well below Bauer's average, and mostly below Cole. 
 
@@ -228,10 +241,17 @@ for pitcher in range(3,7):
     plot_player(fast_balls, 3, pitchers, pitcher)
 ```
 
-![image](https://user-images.githubusercontent.com/85371843/124680634-65d24980-de8c-11eb-96f0-b14d5d366167.png)
+<!-- ![image](https://user-images.githubusercontent.com/85371843/124680634-65d24980-de8c-11eb-96f0-b14d5d366167.png)
 ![image](https://user-images.githubusercontent.com/85371843/124680655-6c60c100-de8c-11eb-908d-9289047cc162.png)
 ![image](https://user-images.githubusercontent.com/85371843/124680667-72ef3880-de8c-11eb-8fb0-15c176d16bb3.png)
-![image](https://user-images.githubusercontent.com/85371843/124680679-797db000-de8c-11eb-8f8b-ff5984244376.png)
+![image](https://user-images.githubusercontent.com/85371843/124680679-797db000-de8c-11eb-8f8b-ff5984244376.png) -->
+
+TEST
+<img src="/images/c_kershaw_yoy.png" alt="hi" class="inline"/>
+<img src="/images/m_scherzer_yoy.png" alt="hi" class="inline"/>
+<img src="/images/y_darvish_yoy.png" alt="hi" class="inline"/>
+<img src="/images/k_hendricks_yoy.png" alt="hi" class="inline"/>
+
 
 An examination of the YoY trends for Kershaw, Scherzer, Darvish, and Hendricks reveals a similar pattern accross the board - a material decrease in spin rate in 2021. Darvish and Kershaw appear to have been experiencing higher spin rates compared to hisorical averages, while Scherzer and Hendricks saw already low rates drop even further. Regardless of the rate relative to past years, it would appear that all are experiencing an impact as a result of the increased speculation on foreign substances. 
 
