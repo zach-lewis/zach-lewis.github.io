@@ -18,7 +18,7 @@ I decided to take a look for myself using pybaseball and it's access to Statcast
 ## Data Loading and Exploration
 
 For the purpose of comparison, I wanted a sense of historical spin rates to understand how much they've changed in recent years, and how much they've declined since June. Using pybaseball's statcast method, we'll be looking at ~3.5M pitches from 2016-2021.
-```Python
+```python
 import pybaseball
 import pandas as pd 
 import numpy as np
@@ -35,7 +35,7 @@ print(f'Total pitches in selected timeframe: {full.shape[0]}')
 ### Spin Rate Distrobutions
 Different pitches have a different average spin rate - a good knuckleball should have almost no spin, while a curveball requires a high number of revolutions to create significant movement. 
 
-```Python
+```python
 order_=full.groupby('pitch_type').agg({'release_spin_rate' : 'mean'}).sort_values(by='release_spin_rate', ascending=False).index
 fig, ax = plt.subplots(figsize=(16,10))
 ax = sns.boxplot(x='pitch_type', y='release_spin_rate', data=full, ax=ax, palette='GnBu_r',
@@ -47,7 +47,7 @@ ax.set_title(f'Spin Rate Distrobutions by Pitch Type. Overall Mean: {full.releas
 
 The pitches with the highest median spin rate are Curveballs (CU) and Knucklecurves (KC), while the lowest are Changups (CH),  Knuckleballs (KN), Forkballs (FO), and Splitters (FS). For this analysis, I focused only on fastballs excl. Splitters (Four-Seam, Two-Seam, Sinkers, and Cutters) to be sure and remove any noise from trends. In other words, I wanted to be sure that any decrease in spin rate signals an actual change in pitcher performance, and is not related to a decrease in the number of curveballs or sliders they're throwing. 
 
-```Python 
+```python 
 #Filtering for Fastballs
 fast_balls = full[full.pitch_type.isin(['FC', 'FT', 'SI', 'FF'])].copy()
 fast_balls['pitch_year'] = [date.year for date in fast_balls.game_date]
@@ -63,7 +63,7 @@ To better understand how spin rate relates to a pitchers performance, lets take 
 - SwStr%: Swinging Strike %
 - K/9: Strikeouts per 9 Innings
 
-```Python
+```python
 pitching_stats = pybaseball.pitching_stats(2018, 2021)
 stats = pitching_stats.groupby('Name').mean().reset_index()
 stats = stats[['Name', 'ERA', 'K/BB', 'WHIP', 'FIP', 'SwStr%', 'K/9']]
@@ -90,7 +90,7 @@ Now that we have an understanding of how spin rate relates to pitcher performanc
 
 To explore and plot Statcast data, I defined a couple functions to calculate the moving average of spin rate across a selected window, and then plot the moving average by year. I've excluded the post-season as RPMs tend to shoot up during that time frame, and used a 15 day window for the league average. 
 
-```Python
+```python
 def m_avg_by_year(df, avg_window, year_column, group_col, agg_col, agg_measure):
     """Group Data by Year and calculate moving average to prevent data skewing YoY"""
     grouped = df.groupby(year_column)
@@ -131,7 +131,7 @@ def plot_yoy_rate(df, window, player=None, cmap='ocean_r',
     return ax
 ```
 
-```Python
+```python
 #Plot 15 day moving average of Spin rate 
 ax = plot_yoy_rate(fast_balls, 15)
 ax.set_title('MLB Avg Spin Rate (Fastballs): 2016 - 2021', fontsize=15)
@@ -148,7 +148,7 @@ It's clear there was an immediate, and dramatic decrease in spin rates following
 ## Spin Rate by Pitcher
 It appears that use of foreign substances to enhance spin rate is a pervasive issue - but how does that play out on an individual pitcher basis? Let's lets take a look at a few elite pitchers and to see who has experienced a decrease in spin rates, and who has been unaffected. 
 
-```Python
+```python
 def plot_player(data, window, player_list, player_idx):
     ax = plot_yoy_rate(data, window, player_list[player_idx])
     ax.set_title(f'Avg Spin Rate - {player_list[player_idx].split(", ")[1]} {player_list[player_idx].split(", ")[0]}',
@@ -166,7 +166,7 @@ pitchers = [
             ]
 ```
 ### Gerrit Cole
-```Python
+```python
 ax = plot_player(fast_balls, 3, pitchers, 0)
 ax.text(0, 2290, 'Cole Traded to Astros', fontsize=11)
 rect = plt.Rectangle((1, 2308), 2, 15, color='r', alpha=1)
@@ -183,7 +183,7 @@ Cole's 2018 spin rate climbed throughout the year, reaching averages of 2500+ fr
 
 ### Trevor Bauer
 
-```Python
+```python
 ax = plot_player(fast_balls, 3, pitchers, 1)
 ax.text(8, 2420, 'Bauer Conducts 1st "Experiment"')
 ax.text(85, 2500, 'Conducts 2nd "Experiment"?', fontsize=10)
@@ -203,7 +203,7 @@ Bauer's claim that he is morally above doctoring baseballs is more than ironic g
 
 ### Jacob deGrom
 
-```Python
+```python
 ax = plot_player(fast_balls, 3, pitchers, 2)
 ax.hlines(y=fast_balls[(fast_balls.player_name == 'Bauer, Trevor') & (fast_balls.pitch_year.isin([2018,2019,2020,2021]))].release_spin_rate.mean(),
           xmin=0, xmax=100, colors='red', linestyles='dashed', linewidth=.75)
@@ -223,7 +223,7 @@ While it's possible that deGrom may use some foreign substance, so far it seems 
 
 ### Remaining Pitchers
 
-```Python
+```python
 for pitcher in range(3,7):
     plot_player(fast_balls, 3, pitchers, pitcher)
 ```
