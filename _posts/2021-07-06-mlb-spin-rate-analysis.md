@@ -43,8 +43,6 @@ ax = sns.boxplot(x='pitch_type', y='release_spin_rate', data=full, ax=ax, palett
 ax.set_title(f'Spin Rate Distributions by Pitch Type. Overall Mean: {full.release_spin_rate.mean():.0f}')
 ```
 
-<!-- ![image](https://user-images.githubusercontent.com/85371843/124680325-c614bb80-de8b-11eb-98ce-73e1f992c542.png) -->
-
 <img src="/images/pitch_spin_rates.png" alt="hi" class="inline"/>
 
 The pitches with the highest median spin rate are Curveballs (CU) and Knucklecurves (KC), while the lowest are Changups (CH),  Knuckleballs (KN), Forkballs (FO), and Splitters (FS). For this analysis, I focused only on fastballs excl. Splitters (Four-Seam, Two-Seam, Sinkers, and Cutters) to be sure and remove any noise from trends. In other words, I wanted to be sure that any decrease in spin rate signals an actual change in pitcher performance, and is not related to a decrease in the number of curveballs or sliders they're throwing. 
@@ -83,8 +81,6 @@ for i, ax in enumerate(axes.flat):
     ax.set_title(f"Correlation = {corr_.iloc[0][stats_list[i]]:.2f}")
 ```
 
-<!-- ![image](https://user-images.githubusercontent.com/85371843/124680528-37546e80-de8c-11eb-9637-971271d288e3.png) -->
-TEST
 <img src="/images/spin_rate_correlation.png" alt="hi" class="inline"/>
 
 
@@ -144,7 +140,6 @@ ax.vlines(x=[53], ymin=2200, ymax=2300, colors='red', linestyles='dashed', linew
 ax.text(55, 2290, 'MLB signals crackdown\non foreign substances', fontsize=12)
 ```
 
-<!-- ![image](https://user-images.githubusercontent.com/85371843/124680561-4509f400-de8c-11eb-9e62-0eca542e8b13.png) -->
 <img src="/images/spin_rate_yoy.png" alt="hi" class="inline"/>
 
 
@@ -180,7 +175,6 @@ rect = plt.Rectangle((1, 2308), 2, 15, color='r', alpha=1)
 ax.add_patch(rect)
 ```
 
-<!-- ![image](https://user-images.githubusercontent.com/85371843/124680585-4dfac580-de8c-11eb-8a5a-bf0d2a8a4108.png) -->
 <img src="/images/g_cole_yoy.png" alt="hi" class="inline"/>
 
 
@@ -202,7 +196,6 @@ ax.add_patch(rect1)
 ax.add_patch(rect2)
 ```
 
-<!-- ![image](https://user-images.githubusercontent.com/85371843/124680603-56530080-de8c-11eb-9cc7-27e88b4e3bb3.png) -->
 <img src="/images/t_bauer_yoy.png" alt="hi" class="inline"/>
 
 
@@ -226,7 +219,6 @@ ax.legend(['2016', '2017', '2018', '2019', '2020', '2021'],loc='lower left')
 ax.legend
 ```
 
-<!-- ![image](https://user-images.githubusercontent.com/85371843/124680615-5d7a0e80-de8c-11eb-99cd-acb8936f445f.png) -->
 <img src="/images/j_degrom_yoy.png" alt="hi" class="inline"/>
 
 
@@ -241,12 +233,6 @@ for pitcher in range(3,7):
     plot_player(fast_balls, 3, pitchers, pitcher)
 ```
 
-<!-- ![image](https://user-images.githubusercontent.com/85371843/124680634-65d24980-de8c-11eb-96f0-b14d5d366167.png)
-![image](https://user-images.githubusercontent.com/85371843/124680655-6c60c100-de8c-11eb-908d-9289047cc162.png)
-![image](https://user-images.githubusercontent.com/85371843/124680667-72ef3880-de8c-11eb-8fb0-15c176d16bb3.png)
-![image](https://user-images.githubusercontent.com/85371843/124680679-797db000-de8c-11eb-8f8b-ff5984244376.png) -->
-
-TEST
 <img src="/images/c_kershaw_yoy.png" alt="hi" class="inline"/>
 <img src="/images/m_scherzer_yoy.png" alt="hi" class="inline"/>
 <img src="/images/y_darvish_yoy.png" alt="hi" class="inline"/>
