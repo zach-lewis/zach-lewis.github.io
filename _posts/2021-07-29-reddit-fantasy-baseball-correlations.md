@@ -230,8 +230,8 @@ ax[1].set_title("3rd Degree Polynomial")
 
 ## Conclusion
 When looking at the entire universe of players, there is not a strong correlation between the number of mentions collected from Reddit and their fantasy points. This could be driven by a variety of factors:
-- The increased likelihood that they will be mentioned by last name only and missed by the tool
-- Less likely to be discussed in relation to their trade prospects - most people aren't asking Reddit's opinion on trading for someone like Gerrit Cole as their value is more or less obvious, while lesser known player's values often gets discussed
+- The increased likelihood that they will be mentioned by last name only and missed by the tool.
+- Less likely to be discussed in relation to their trade prospects - most people aren't asking Reddit's opinion on trading for someone like Gerrit Cole as their value is more or less obvious, while lesser known player's values often gets discussed.
 - High value all-stars are less likely to be discussed in depth after a solid outing than middle/lower-tier players, while the consistent performance from someone unexpected tends to get more noise as owners look to roster a good value.
 
 However, when restricted to only players drafted 250th or later as a proxy for general popularity / roster %, the correlation improves. Position players seem to follow a pattern of high mentions during hot streaks, which may normalize in the long run, while pitchers with high mentions tend to have a better long term value proposition. 
