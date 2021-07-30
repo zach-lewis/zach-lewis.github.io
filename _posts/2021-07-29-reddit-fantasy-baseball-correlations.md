@@ -99,7 +99,7 @@ iplot(g, auto_play=False, animation_opts = {'easing' : 'elastic', 'redraw' : Fal
 {% include top_ment_auto.html %}
 
 ## Evaluating the Relevance of Mentions with Statcast Data
-While seeing the top mentions trends and how they've evolved is interesting, it's worth further investigation into whether or not mentions are correlated with the fantasy points a players accounts for, and therefore worth rostering. In place of scraping the ESPN website for my specific league to return fantasy points for each player, I utilized an approach that converts season stats obtained through pybaseball into fantasy points based on my particular leagues rules. (pybaseball is a great package that scrapes Baseball Reference, FanGraphs, and Baseball Savant https://github.com/jldbc/pybaseball)
+While seeing the top mentions trends and how they've evolved is interesting, it's worth further investigation into whether or not mentions are correlated with the fantasy points a players accounts for, and therefore worth rostering. In place of scraping the ESPN website for my specific league to return fantasy points for each player, I utilized an approach that converts season stats obtained through pybaseball into fantasy points based on my particular leagues rules. (<a href="https://github.com/jldbc/pybaseball">pybaseball is a great package that scrapes Baseball Reference, FanGraphs, and Baseball Savant</a>)
 
 ```python
 season_batting = pybaseball.batting_stats(2021)
@@ -171,7 +171,7 @@ iplot(graph_correlation(bat_corr, 'Num_Mentions', 'fantasy_bat', 'Name', 'Battin
 
 {% include corr_1.html %}
 
-For all players in the data set, it appears the number of mentions on reddit is a fairly poor predictor of fantasy points, though there is a slight positive correlation. However, this data set includes perrenial all-stars that I expected to skew the results, and likely aren't available to roster anyways. To solve for this and remove some of the noise, filtering based on Average Draft Pick - a measure of how early a player is drafted in all fantasy leagues - is a good measure of general popularity and is available for all leagues at https://www.fantasypros.com/mlb/adp/overall
+For all players in the data set, it appears the number of mentions on reddit is a fairly poor predictor of fantasy points, though there is a slight positive correlation. However, this data set includes perrenial all-stars that I expected to skew the results, and likely aren't available to roster anyways. To solve for this and remove some of the noise, filtering based on Average Draft Pick - a measure of how early a player is drafted in all fantasy leagues - is a good measure of general popularity and is available for all leagues at <a href="https://www.fantasypros.com/mlb/adp/overall">FantasyPros.</a>
 
 ```python
 adp = pd.read_csv('data/2021_ADP_Rankings.csv')
