@@ -226,7 +226,7 @@ sns.regplot(x='Num_Mentions', y='Fantasy Points', data=full, order=3, ci=False, 
 ax[1].set_title("3rd Degree Polynomial")
 ```
 
-PLACEHOLDER
+<img src="/images/praw_poly.png" alt="hi" class="inline"/>
 
 ## Conclusion
 When looking at the entire universe of players, there is not a strong correlation between the number of mentions collected from Reddit and their fantasy points. This could be driven by a variety of factors:
