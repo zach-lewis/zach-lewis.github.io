@@ -304,9 +304,9 @@ After some lenghty run times due to the Support Vector Classifier, we're present
 
 <img src="/images/update_eval.png" alt="hi" class="inline"/>
 
-A slight improvement for all of the models, with the SVC just barely edging out KNN as having the best score. Due to the lengthy run-time for evaluating this model in comparison to the others, it doesn't appear to be the optimal solution. Nonetheless, now that we have the model built we'll see how it performers on the test set just as well.
+A slight improvement for all of the models, with the SVC just barely edging out KNN as having the best score. Due to the lengthy run-time for evaluating this model in comparison to the others, it doesn't appear to be the optimal solution. Nonetheless, now that we have the model built we'll see how it performs on the test set just as well.
 ## Evaluating the Test Set
-With our models selected, it's time to see how they perform on the test set. We'll apply the pipeline to our hold-out data, and then score each model accordingly and see how it generalize to data it's never seen.
+With our models selected, it's time to see how they perform on the test set. We'll apply the pipeline to our hold-out data, and then score each model accordingly and see how it generalizes to data it's never seen.
 ```python
 from sklearn.metrics import f1_score
 X_test_prep = full_pipeline.transform(X_test)
@@ -322,12 +322,12 @@ KNN F-Score: 84.45%
 SVC F-Score: 85.85%
 DTC F-Score: 82.61%
 
-The scores in line with the scores we expected based on our training set, with the Support Vector Classifier and K-Nearest Neighbors performing the best at an F-Score of ~85%. Let's take a look at where the wrongly classified instances are occuring. 
+The scores are in line with the scores we expected based on our training set, with the Support Vector Classifier and K-Nearest Neighbors performing the best at an F-Score of ~85%. Out of curiousity, we'll take a look at where the ~15% wrongly classified instances are occuring. 
 
 For this data:
 
-- A False Positive is an instance that resulted in an out, but our model predicted that it would be a hit
-- A False Negative is an instance that resulted in a hit, but our model predicted that it would be an out
+- A False Positive is an instance that resulted in an out, but our model predicted would be a hit
+- A False Negative is an instance that resulted in a hit, but our model predicted would be an out
 
 ```python
 for model_name, model in best_models.items():
@@ -356,13 +356,13 @@ for model_name, model in best_models.items():
 
 <img src="/images/dtc_heat.png" alt="hi" class="inline"/>
 
-All of the models seem to struggle with certain infield hits that the model expects to be an out, but results in a hit. This could likely be attributed to seeing-eye singles, runners beating out the throw, and other instances of the sort. All of the models also seem to struggle with deep hits in the outfield - though the makeup is slightly different.
+All of the models seem to struggle with certain infield hits that the model expects to be an out, but result in hits. This could likely be attributed to seeing-eye singles, runners beating out the throw, or other instances of that sort. All of the models also seem to struggle with deep hits in the outfield - though the makeup is slightly different.
 
 Both KNN and the SVC have a larger number of False Positives, while the Decision Tree seems to skew towards False Negatives. It appears something in the rule set is biasing the Decision Tree against predicting those fringe drives as hits, while the other two models are more likely to falsely predict a hit.
 ## Conclusion
 We were able to build a couple of models which are able to accurately predict hit outcomes at ~85% based on statcast data, which is pretty good performance. If I was going to deploy a model out of the ones we trained, I would lean towards the KNN for it's accuracy and quick performance. While the Support Vector Classifier performed slightly better, the lengthy run-time would make it less than optimal for a scenario where you are estimating outcomes (e.g. during a live broadcast).
 
-The models struggled on classifying hits in the deep outfield and the infield, and if I were to revist the subject I would likely select a few other features and see how they impact the performance, such as ball-park and player at-bat. In another iteration, it would also be interesting to build a model that provides a probability statistic (liklihood of a hit) or predicts the actual event outcome (single, HR, out, etc.), but for a baseline approach we've developed a solid model.
+The models struggled on classifying hits in the deep outfield and the infield, and if I were to revist the subject I would likely select a few other features and see how they impact the performance, such as ball-park and player at-bat. In another iteration, it would also be interesting to build a model that provides a probability statistic (liklihood of a hit) or predicts the actual event (single, HR, out, etc.), but for a baseline approach we've developed a solid model.
 
 
 
