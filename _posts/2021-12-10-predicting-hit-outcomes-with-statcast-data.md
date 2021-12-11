@@ -328,6 +328,7 @@ For this data:
 
 - A False Positive is an instance that resulted in an out, but our model predicted that it would be a hit
 - A False Negative is an instance that resulted in a hit, but our model predicted that it would be an out
+
 ```python
 for model_name, model in best_models.items():
     y_pred = model.predict(X_test_prep)
@@ -348,9 +349,13 @@ for model_name, model in best_models.items():
                                                   'False Negative', 'False Positive'])
     ax.set_title(f'{model_name}')
 ```
+
 <img src="/images/knn_heat.png" alt="hi" class="inline"/>
+
 <img src="/images/svc_heat.png" alt="hi" class="inline"/>
+
 <img src="/images/dtc_heat.png" alt="hi" class="inline"/>
+
 All of the models seem to struggle with certain infield hits that the model expects to be an out, but results in a hit. This could likely be attributed to seeing-eye singles, runners beating out the throw, and other instances of the sort. All of the models also seem to struggle with deep hits in the outfield - though the makeup is slightly different.
 
 Both KNN and the SVC have a larger number of False Positives, while the Decision Tree seems to skew towards False Negatives. It appears something in the rule set is biasing the Decision Tree against predicting those fringe drives as hits, while the other two models are more likely to falsely predict a hit.
