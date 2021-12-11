@@ -86,7 +86,9 @@ sns.scatterplot(x='hc_y', y='hc_x',
                 data=df, ax=ax)
 ```
 <img src="/images/hit_prob_xy.png" alt="hi" class="inline"/>
+
 There are a few areas with near certainties - hits over the outfield wall, foul balls, and infield hits/bunts. However, the majority of the graph displays a neapolitan type coloration, with blurred boundaries on hit probabilities. Let's add a third dimension (exit velocity) and see how the graph changes. 
+
 ```python
 for azim in [30, 320]:
     fig = plt.figure(figsize = (16,20))
@@ -96,8 +98,11 @@ for azim in [30, 320]:
                 cmap='mako', marker='o')
     ax.view_init(5, azim)
 ```
+
 <img src="/images/hit_prob_3dmako1.png" alt="hi" class="inline"/>
+
 <img src="/images/hit_prob_3dmako2.png" alt="hi" class="inline"/>
+
 We start to see some of the more convoluted areas in the original graph begin to seperate along the z-axis, exit velocity. How quickly a ball reaches its destination obviously has an impact on the outcome, with that relationship shown in our 3D rendering.
 
 While we've uncovered a couple of the features that seem to influence the outcome of a hit, there's likely several other factors involved, creating an n-dimensional space that is more difficult to visualize. Once we've developed our model, we'll be able to uncover which features are most useful in predicting outcomes - but for now let's move on to preparing our dataset for model selection.
