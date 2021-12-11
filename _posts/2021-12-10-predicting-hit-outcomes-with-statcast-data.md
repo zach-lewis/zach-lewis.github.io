@@ -243,6 +243,7 @@ Time Elapsed SVM: 641.62s
 Time Elapsed KNN: 7.09s
 Time Elapsed Decision Tree: 2.52s
 <img src="/images/baseline_eval.png" alt="hi" class="inline"/>
+
 The Logistic Regression performed the worst out of the candidates, with an score of only ~50%. Meanwhile, the KNN model outperformed the other models while also working very efficiently, which is a hallmark of the algorithm. SVM has a solid F-Score baseline, however it is far less efficient compared to the other models. Given the similar performance across KNN, SVM, and the Decision Tree, I'm going to go forward with optimizing each model to see if any has a significant performance improvement.
 
 To do this, we'll do a Grid Search on each of the models to identify the optimal hyperparameters for the best F-Score.
